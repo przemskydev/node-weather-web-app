@@ -1,21 +1,18 @@
+const path = require('path')
 const express = require('express')
+
 const app = express()
 const port = 3000
+const publicDir = path.join(__dirname, '../public')
 
-app.get('/', (req, res) => {
-  res.send('Hello Express Wordl!')
-})
-
-app.get('/help', (req, res) => {
-  res.send('Help page')
-})
-
-app.get('/about', (req, res) => {
-  res.send('About me page! :)')
-})
+app.use(express.static(publicDir))
 
 app.get('/weather', (req, res) => {
-  res.send('Weather page!')
+  res.send({
+    temperature: 5,
+    feelsLike: 2,
+    location: 'Lublin'
+  })
 })
 
 
