@@ -37,17 +37,24 @@ app.get('/help', (req, res) => {
   res.render('help', {
     title: 'Weather app help page.',
     name: 'Brzemeg XD',
-    title: 'Help',
     helpText: 'Some helpful text'
   })
 })
 
 app.get('/weather', (req, res) => {
+
+  if (!req.query.address) {
+    return res.send({
+      error: 'You must provide an address'
+    })
+  }
+
   res.send({
     temperature: 5,
     feelsLike: 2,
-    location: 'Lublin'
+    location: req.query.address
   })
+
 })
 
 app.get('/help/*', (req, res) => {
