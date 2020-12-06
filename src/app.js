@@ -25,21 +25,21 @@ app.use(express.static(publicDir))
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'Weather App',
-    name: 'Brzemeg XD'
+    name: 'PrzemskDev'
   })
 })
 
 app.get('/about', (req, res) => {
   res.render('about', {
     title: 'About - Weather App',
-    name: 'Brzemeg XD'
+    name: 'PrzemskDev'
   })
 })
 
 app.get('/help', (req, res) => {
   res.render('help', {
     title: 'Weather app help page.',
-    name: 'Brzemeg XD',
+    name: 'PrzemskDev',
     helpText: 'Some helpful text'
   })
 })
@@ -70,19 +70,13 @@ app.get('/weather', (req, res) => {
 
   })
 
-  // res.send({
-  //   temperature: 5,
-  //   feelsLike: 2,
-  //   location: req.query.address
-  // })
-
 })
 
 app.get('/help/*', (req, res) => {
   res.render('404', {
     title: '404 page not found',
     message: 'Help article not found',
-    name: 'Brzemeg XD'
+    name: 'PrzemskDev'
   })
 })
 
@@ -90,10 +84,9 @@ app.get('*', (req, res) => {
   res.render('404', {
     title: '404 page not found',
     message: 'Page not found',
-    name: 'Brzemeg XD'
+    name: 'PrzemskDev'
   })
 })
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
